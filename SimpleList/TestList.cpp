@@ -28,18 +28,16 @@ namespace ListSpace {
 		}
 		bool hasLoop(ListSpace::List* head) {
 			if (head == nullptr)
-			{
 				return false;
-			}
-			ListSpace::List* tortoise = head;
-			ListSpace::List* hare = head;
+			List* tortoise = head;
+			List* hare = head;
 			while (hare != nullptr && hare->next != nullptr) {
 				hare = hare->next->next;
 				tortoise = tortoise->next;
-				if (tortoise == hare) {
+				if (tortoise == hare)
 					return true;
-				}
 			}
+			return false;
 		}
 	};
 }	
