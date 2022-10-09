@@ -1,6 +1,3 @@
 ﻿#include <iostream>
 
-int main()
-{
-    
-}
+

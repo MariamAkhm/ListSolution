@@ -139,7 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SimpleList\ListFactory.cpp" />
+    <ClCompile Include="..\SimpleList\TestList.cpp" />
     <ClCompile Include="AdvancedList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\SimpleList\ListFactory.h" />
+    <ClInclude Include="..\SimpleList\TestList.h" />
+    <ClInclude Include="List.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

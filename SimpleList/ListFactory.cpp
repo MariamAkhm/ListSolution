@@ -1,15 +1,24 @@
 #include <iostream>
 #include "ListFactory.h"
 #include "List.h"
+#include "TestList.h"
 
 namespace ListSpace {
-	static List* GenListOfOneElem(const std::string& name, unsigned char mark) {
-
+	template <typename... Args>
+	List* SetLoop(List* list) {
+		List* head = list;
+		while (head != nullptr) {
+			head = head->next;			
+		}
+		head->next = list;
+		return list;
 	}
-	static List* GenListOfTwoElem(const std::string& name1, unsigned char mark1, const std::string& name2, unsigned char mark2) {
-
+	template< typename... Args>
+	constexpr List* generateList(Args... args) {
+		static_assert(((sizeof...(args)) % 2 == 0)
+			return helperListGenerator(args...);
 	}
-	static List* TwoElemLoop(const std::string& name1, unsigned char mark1, const std::string& name2, unsigned char mark2) {
-
+	constexpr List* helperListGeneration() {
+		return nullptr;
 	}
 }
