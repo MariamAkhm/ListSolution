@@ -1,6 +1,10 @@
-﻿
+﻿#include <iostream>
+#include "AdvancedTestList.h"
+#include "AdvancedListFactory.h"
 #include "AdvancedList.h"
-namespace AdvancedListSpace {
-	AdvancedList<T>(const T& element, AdvancedList<T>* next) noexcept: element{ element } {}, next{ next } {}
-}
 
+int main() {
+    AdvancedListSpace::AdvancedTestList::test1();
+    AdvancedListSpace::AdvancedTestList::test2();
+    AdvancedListSpace::AdvancedTestList::test3();
+}

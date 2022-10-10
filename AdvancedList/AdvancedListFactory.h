@@ -4,24 +4,34 @@
 namespace AdvancedListSpace {
     struct AdvancedListFactory {
         template <typename... Args>
-        static AdvancedList* generateListLoop(Args... args) {
+        static AdvancedList<Record>* generateListLoop(Args... args) {
             AdvancedList myList{ generateList(args...) };
             myList = AdvancedListFactory::SetLoop(myList);
         }
-        static AdvancedList* SetLoop(AdvancedList* list);
+
+        AdvancedList<Record>* SetLoop(AdvancedList<Record>* list) {
+            MyList* head = list;
+            while (head != nullptr) {
+                head = head->next;
+            }
+            head->next = list;
+            return list;
+        }
+
+
         template< typename... Args>
-        static constexpr  AdvancedList* generateList(Args... args) {
-            static_assert(((sizeof...(args)) % 2 == 0), "n/a");
+        static constexpr  AdvancedList<Record>* generateList(Args... args) {
+            //static_assert(((sizeof...(args)) % 2 == 0), "n/a");
             return helperListGenerator(args...);
         }
     private:
-        template<typename... Args>
-        static constexpr  AdvancedList* helperListGenerator(std::string name, Mark mark, Args... args) {
-            AdvancedList* myList = new AdvancedList{ Record{name, mark}, helperListGenerator(args...) };
-            return myList;
-        }
-        static constexpr  AdvancedList* helperListGeneration() {
+        static constexpr  AdvancedList<Record>* helperListGenerator() {
             return nullptr;
+        }
+        template<typename... Args>
+        static constexpr  MyList* helperListGenerator(std::string name, Mark mark, Args... args) {
+            MyList* myList = new MyList{ Record{name, mark}, helperListGenerator(args...) };
+            return myList;
         }
     };
 }
