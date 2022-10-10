@@ -15,7 +15,7 @@ namespace ListSpace {
 	}
 	template< typename... Args>
 	constexpr List* generateList(Args... args) {
-		static_assert(((sizeof...(args)) % 2 == 0)
+		static_assert(((sizeof...(args)) % 2 == 0), "n/a");
 			return helperListGenerator(args...);
 	}
 	constexpr List* helperListGeneration() {

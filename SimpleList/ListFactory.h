@@ -10,17 +10,17 @@ namespace ListSpace {
 		}
 		static List* SetLoop(List* list);
 		template< typename... Args>
-		static constexpr List* generateList(Args... args) {
+		static constexpr  List* generateList(Args... args) {
 			static_assert(((sizeof...(args)) % 2 == 0), "n/a");
 			return helperListGenerator(args...);
 		}
 	private:
 		template<typename... Args>
-		static constexpr List* helperListGenerator(std::string name, Mark mark, Args... args) {
+		static constexpr  List* helperListGenerator(std::string name, Mark mark, Args... args) {
 			List* myList = new List{ Record{name, mark}, helperListGenerator(args...) };
 			return myList;
 		}
-		static constexpr List* helperListGeneration() {
+		static constexpr  List* helperListGeneration() {
 			return nullptr;
 		}
 	};
